@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>BuilderWork API</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<link rel="stylesheet" href="assets/css/test.css" />
+		<script src="assets/js/jquery-1.12.1.min.js"></script>
+	
+<style>
+</style>
+
+<script>
+function TestAPI_SendQueryToServer(e_strURL, e_arrParam, e_strDestinationID)
+{	
+	$.ajax({
+	  method: "POST",
+	  url: e_strURL,
+	  data: e_arrParam
+	})
+	  .done(function( e_strResultHTML ) {
+//		$('#'+e_strDestinationID).html('<pre>'+e_strResultHTML+'</pre>');
+		$('#'+e_strDestinationID).html(e_strResultHTML);
+//		alert( "Data Saved: " + msg );
+	  });
+	
+}
+</script>
+
+	</head>
+	<body>
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner split">
+					<section>
+						<h2>Добро пожаловать в <a href="http://builderwork.org">BuilderWork</a> API</h2>
+					</section>
+					<section>
+						<p>PHP API для работы с данными из внешних сайтов.</p>
+						
+
+					</section>
+				</div>
+			</section>
+
+
+			<section id="two" class="wrapper style2 alt">
+				<div class="inner">
+					<div class="spotlight">
+
+						<div class="content">
+							<h3 style="margin:0; paddimng:0;">Простой запрос</h3>
+							
+							<p ><span style="font-weight:bold;color:#990000;">№ заказака(8660, 8785, 8768):</span></p><input id="testapi_sample1_order_num" value="8660">
+							<div id="TestAPI_Result_1"></div>
+							<ul class="actions">
+								<li><span onclick="TestAPI_SendQueryToServer('php_samples/phpclient_sample1.php', {'order_id':$('#testapi_sample1_order_num').val()}, 'TestAPI_Result_1');" class="button alt">Старт</span></li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</section>
+
+
+
+			<footer id="footer">
+				<div class="copyright">
+					&copy; All rights reserved by: <a href="http://builderwork.org">BuilderWork</a>.
+				</div>
+			</footer>
+
+
+
+
+	</body>
+</html>
